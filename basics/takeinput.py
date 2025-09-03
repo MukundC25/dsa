@@ -1,4 +1,4 @@
 # Taking integer input
-num = int(input("Enter a number: "))
+num = float(input("Enter a number: "))
 
 print("You entered:", num)
