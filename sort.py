@@ -183,3 +183,111 @@ for i in range(10):
 print(list)
 insertionSort(list)
 print(list)'''
+
+
+############
+#merge sort method 1
+
+'''def merge(a,b):
+    c = a + b
+    c.sort() #(predefined sort method)
+    return c
+
+a = [10, 30, 50, 70]
+b = [5, 6, 6, 20]
+print(a)
+print(b)
+print(merge(a,b))'''
+
+
+#method 2 
+'''def merge(a,b):
+    c = []
+    m,n = len(a), len(b)
+    #actual merge sort function
+    i,j = 0,0
+    while i<m and j<n:
+        if a[i]<b[j]:
+            c.append(a[i])
+            i = i+1
+        else:
+            c.append(b[j])
+            j = j+1
+    while i<m:
+        c.append(a[i])
+        i = i+1
+    while j<n:
+        c.append(b[j])
+        j = j+1
+    return c
+
+a = [10, 30, 50, 70]
+b = [5, 6, 6, 20]
+print(a)
+print(b)
+print(merge(a,b))'''
+
+#merge sub arrays
+'''def mergeSort(l, lindex, rindex):
+    if rindex>lindex:
+        mid=(lindex+rindex)//2
+        mergeSort(l,lindex,mid)
+        mergeSort(l,mid+1,rindex)
+        merge(l,lindex,mid,rindex)
+
+def merge(a, low, mid, high):
+    l = a[low:mid+1]
+    r = a[mid+1:high+1]
+    m,n = len(l),len(r)
+    i,j = 0,0
+    k=low
+    while i<m and j<n:
+        if l[i]<r[j]:
+            a[k] = l[i]
+            i=i+1
+            k=k+1
+        else:
+            a[k] = r[j]
+            j=j+1
+            k=k+1
+    while i<m:
+        a[k] = l[i]
+        i=i+1
+        k=k+1
+    while j<n:
+        a[k] = r[j]
+        j=j+1
+        k=k+1
+
+L = [38, 27, 43, 3, 9, 82, 10]
+print(L)
+mergeSort(L, 0, len(L)-1)
+print(L)'''
+
+
+############
+#quick sort
+
+'''def quickSort(l, low, high):
+    if high<=low:
+        return
+    pivot = l[low]
+    start = low
+    end = high
+    while low<high:
+        while l[low]<= pivot and low<high:
+            low = low +1
+        while l[high]>pivot and low<=high:
+            high = high - 1
+        if low<high:
+            l[high],l[low] = l[low],l[high]
+    l[high],l[start] = l[start],l[high]
+    quickSort(l,start,high-1)
+    quickSort(l,high+1,end)
+
+L = [4, 6, 1, 9, 2, 7, 3, 8, 5]
+print(L)
+quickSort(L, 0, len(L)-1)
+print(L)'''
+
+############
